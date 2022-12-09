@@ -3,10 +3,6 @@
 <!--
 **hphuoc27/hphuoc27** is a ✨ _special_ ✨ repository because its `gioithieu.md` (this file) appears on your GitHub profile.
 
-🔭 Passion in something ... (secret😊)
-💪 2021 Goals: Learning many things in Python
-⭐: Reading, listening, walking, running, playing piano... and blade wind😅
-
 <div align="center">
     <img src="https://user-images.githubusercontent.com/69431456/183576577-2486db3f-f0a9-4252-b283-a8322e5eb8b6.png" alt="Lenster Logo">
     <h1>Lenster</h1>
