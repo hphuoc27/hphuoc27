@@ -1,0 +1,52 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@hphuoc27 
+bxdoan
+/
+Arbitrum-Full-Node
+Public
+forked from thisislexar/Arbitrum-Full-Node
+Code
+Pull requests
+Actions
+Projects
+Security
+Insights
+Arbitrum-Full-Node/arbitrum_manual.md
+@bxdoan
+bxdoan change some code and remove other language
+Latest commit bd731b2 11 days ago
+ History
+ 2 contributors
+@thisislexar@bxdoan
+19 lines (14 sloc)  660 Bytes
+
+Update your server and install Docker.
+sudo apt update && sudo apt upgrade -y
+sudo apt install docker.io -y
+Open Arbitrum file and give permission.
+mkdir -p ~/data/arbitrum
+chmod -fR 777 ~/data/arbitrum
+Run your node. Don't forget to change<L1URL> part with the https part that you copied from Alchemy.
+docker run -d -v ~/data/arbitrum:/home/user/.arbitrum -p 0.0.0.0:8547:8547 -p 0.0.0.0:8548:8548 offchainlabs/nitro-node:v2.0.7-10b845c --l1.url <L1URL> --l2.chain-id=42161 --http.api=net,web3,eth,debug --http.corsdomain=* --http.addr=0.0.0.0 --http.vhosts=* --init.url="https://snapshot.arbitrum.io/mainnet/nitro.tar"
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Arbitrum-Full-Node/arbitrum_manual.md at main · bxdoan/Arbitrum-Full-Node
