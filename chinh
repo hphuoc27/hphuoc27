@@ -1,0 +1,77 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@hphuoc27 
+bxdoan
+/
+Arbitrum-Full-Node
+Public
+forked from thisislexar/Arbitrum-Full-Node
+Code
+Pull requests
+Actions
+Projects
+Security
+Insights
+Arbitrum-Full-Node/arbitrum.sh
+@bxdoan
+bxdoan change some code and remove other language
+Latest commit bd731b2 11 days ago
+ History
+ 2 contributors
+@bxdoan@thisislexar
+33 lines (26 sloc)  1.28 KB
+
+#!/bin/bash
+echo -e "\033[0;35m"
+echo "  _     ___  ____ ____  _   _  ___  ____  _____ ";
+echo " | |   / _ \/ ___/ ___|| \ | |/ _ \|  _ \| ____|";
+echo " | |  | | | \___ \___ \|  \| | | | | | | |  _|  ";
+echo " | |__| |_| |___) |__) | |\  | |_| | |_| | |___ ";
+echo " |_____\___/|____/____/|_| \_|\___/|____/|_____|";
+echo -e "\e[0m"
+
+sleep 3
+
+echo -e "\e[1m\e[32m1. Updating the server, installing docker.. \e[0m"
+echo "======================================================"
+sleep 1
+sudo apt update && sudo apt upgrade -y
+sudo apt install docker.io -y
+mkdir -p ~/data/arbitrum
+chmod -fR 777 ~/data/arbitrum
+
+if [ ! $L1URL ]; then
+	read -p "Enter your L1 URL: " L1URL
+	echo 'export L1URL='$L1URL >> $HOME/.bash_profile
+fi
+
+
+echo -e "\e[1m\e[32m1. Installing Arbitrum Node.. \e[0m"
+echo "======================================================"
+sleep 1
+
+# docker image pull offchainlabs/arbitrum-node:latest from ref: https://hub.docker.com/r/offchainlabs/nitro-node/tags
+image_name="offchainlabs/nitro-node:v2.0.8-5b9fe9c"
+
+docker run -d -v ~/data/arbitrum:/home/user/.arbitrum -p 0.0.0.0:8547:8547 -p 0.0.0.0:8548:8548 $image_name --l1.url $L1URL --l2.chain-id=42161 --http.api=net,web3,eth,debug --http.corsdomain=* --http.addr=0.0.0.0 --http.vhosts=* --init.url="https://snapshot.arbitrum.io/mainnet/nitro.tar"
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Arbitrum-Full-Node/arbitrum.sh at main · bxdoan/Arbitrum-Full-Node
